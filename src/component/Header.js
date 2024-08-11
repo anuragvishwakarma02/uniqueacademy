@@ -22,6 +22,7 @@ import { useNavigate } from "react-router-dom";
 
 const pages = { 'Home': '', 
                 'Managers': 'managers',
+                'Events': 'events',
                 'Vision': 'vision',
                 'Gallery': 'gallery', 
                 'Contact us':'contact'};
