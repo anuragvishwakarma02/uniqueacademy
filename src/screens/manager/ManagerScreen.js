@@ -1,7 +1,8 @@
 import React from 'react'
+import PeopleCarousel from '../../component/PeopleCarousel'
 
 export default function ManagerScreen() {
-  return (
-    <div>mangerscreen</div>
-  )
+  return (<>
+  <PeopleCarousel></PeopleCarousel></>
+   )
 }
