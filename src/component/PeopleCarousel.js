@@ -1,9 +1,13 @@
 import React, { useState } from 'react'
-import { Carousel ,ScrollingCarousel} from '@trendyol-js/react-carousel';
+import { Carousel, ScrollingCarousel } from '@trendyol-js/react-carousel';
 import { Avatar, Typography, Box, Grid, Paper } from '@mui/material'
 import Image from '../images/person1.jpg'
 import Image2 from '../images/person2.jpg'
 import { styled } from '@mui/material/styles';
+
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import Slider from "react-slick";
 
 const imagelist = [
     {
@@ -54,6 +58,28 @@ const Item = styled(Paper)(({ theme }) => ({
 }));
 
 export default function PeopleCarousel() {
+    var settings = {
+        dots: false,
+        infinite: true,
+        speed: 500,
+        arrows: false,
+        slidesToShow: 2,
+        slidesToScroll: 1,
+        autoplay: true,
+        autoplaySpeed: 3000,
+
+    };
+    var settings2 = {
+        dots: false,
+        infinite: true,
+        speed: 500,
+        arrows: false,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        autoplay: true,
+        autoplaySpeed: 3000,
+
+    };
     const [managers, setManagers] = useState(imagelist)
     const [selectedManager, setSelectedManager] = useState(managers[0])
 
@@ -61,35 +87,44 @@ export default function PeopleCarousel() {
         setSelectedManager(managers[selectedManagerIndex])
     }
     return (<>
+        <div className="slider-container">
+
+            <Slider {...settings} afterChange={handleSelectManager} >
+                {managers.map((manager, index) => (<>
+                    <Avatar sx={{ width: '15vw', height: "15vw" }} key={index + manager.name} alt={manager.name} src={manager.person_image}
+                        onClick={e => handleSelectManager(index)}
+                    ></Avatar>
+                </>))}
+            </Slider>
+        </div>
         {/* <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}> */}
-        <Grid container spacing={2} sx={{ mt: 1 }}>
-            <Grid item container xs={12} md={12}>
-                <Carousel show={2.5} slide={2} transition={0.5} infinite={true} swiping={true} responsive={true}>
+            <Grid container spacing={2} sx={{ mt: 1 }}>
+                {/* <Grid item container xs={12} md={12}> */}
+                {/* <Carousel show={2.5} slide={2} transition={0.5} infinite={true} swiping={true} responsive={true}>
                     {managers.map((manager, index) => (<>
                         <Avatar  sx={{width:'15vw',height:"15vw"}} key={index + manager.name} alt={manager.name} src={manager.person_image}
                             onClick={e => handleSelectManager(index)}
-                        ></Avatar>
-                        {/* <Typography>{index}</Typography> */}
-                    </>
+                        ></Avatar> */}
+                {/* <Typography>{index}</Typography> */}
+                {/* </>
                     ))
                     }
-                </Carousel>
-            </Grid>
+                </Carousel> */}
+                {/* </Grid> */}
 
-            <Grid item container align={'center'} justifyItems={'center'} spacing={2} sx={{ mt: 4,ml:2,mr:2,mb:2 }}>
-                {/* Image section */}
-                <Grid item xs={12} md={5} >
-                    <Avatar sx={{width:'35vw',height:"35vw",borderRadius:'10px'}} variant='square' alt={selectedManager.name} src={selectedManager.person_image}></Avatar>
+                <Grid item container align={'center'} justifyItems={'center'} spacing={2} sx={{ mt: 4, ml: 2, mr: 2, mb: 2 }}>
+                    {/* Image section */}
+                    <Grid item xs={12} md={5} >
+                        <Avatar sx={{ width: '35vw', height: "35vw", borderRadius: '10px' }} variant='square' alt={selectedManager.name} src={selectedManager.person_image}></Avatar>
+                    </Grid>
+                    {/* Description section */}
+                    <Grid item xs={12} md={7} >
+                        <Typography variant='h2'> {selectedManager.name} </Typography>
+                        <Typography variant='h6' sx={{ mt: 2 }}> {selectedManager.desc} </Typography>
+                    </Grid>
                 </Grid>
-                {/* Description section */}
-                <Grid item xs={12} md={7} >
-                    <Typography variant='h2'> {selectedManager.name} </Typography>
-                    <Typography variant='h6' sx={{mt:2}}> {selectedManager.desc} </Typography>
-                </Grid>
+
             </Grid>
-
-        </Grid>
-
         {/* </Box> */}
 
 
