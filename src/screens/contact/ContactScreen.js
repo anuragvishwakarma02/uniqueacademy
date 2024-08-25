@@ -11,6 +11,7 @@ const Item = styled(Paper)(({ theme }) => ({
     alignSelf: 'center',
     justifySelf: 'center',
     color: theme.palette.text.secondary,
+    
 }));
 
 export default function ContactScreen() {
@@ -21,8 +22,8 @@ export default function ContactScreen() {
             <Grid item container xs={12} md={4}>
                 <Grid item xs={12} container direction={'column'} align={'center'} justifyItems={'center'}>
                     <Item>
-                        <Typography variant='body1'>Villa #210 Chandni Chowk</Typography>
-                        <Typography variant='body2'>Nehru Nagar</Typography>
+                        <Typography variant='body1'>Address : Nehru Nagar</Typography>
+                        {/* <Typography variant='body2'>Nehru Nagar</Typography> */}
                         <Typography variant='body2'>Bhilai</Typography>
                     </Item>
                 </Grid>
@@ -31,25 +32,25 @@ export default function ContactScreen() {
             <Grid item xs={12} md={4}>
                 <Grid item xs={12} container direction={'column'} align={'center'} justifyItems={'center'}>
                     <Item>
-                        <Typography variant='body2'>Email :<span>chachachu</span></Typography>
-                        <Typography variant='body2'>Phone :<span>213321314</span></Typography>
+                        <Typography variant='body2'>Email :<span>shami.abdul.uniquety@gmail.com</span></Typography>
+                        <Typography variant='body2'>Phone :<span>91-8103999904</span></Typography>
                     </Item>
                 </Grid>
             </Grid>
             {/* Social */}
-            <Grid item xs={12} md={4}>
+            {/* <Grid item xs={12} md={4}>
                 <Grid item xs={12} container direction={'column'} align={'center'} justifyItems={'center'}>
                 <Item>
                     <Typography variant='body2'>Insta :<span>insta</span></Typography>
                     <Typography variant='body2'>Facebook :<span>Facebook</span></Typography>
                 </Item>
-            </Grid>
+            </Grid> */}
         {/* <Grid item xs={12} md={12}>
             <Grid item xs={12} container direction={'column'} align={'center'} justifyItems={'center'}>
                 <Item>more</Item>
                 </Grid>
             </Grid> */}
-        </Grid>
+        {/* </Grid> */}
     </Grid >
         {/* </Box> */ }
     {/* <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}> */ }
