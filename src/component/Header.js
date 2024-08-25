@@ -20,12 +20,14 @@ import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
 import { useNavigate } from "react-router-dom";
 
-const pages = { 'Home': '', 
-                'Managers': 'managers',
-                'Events': 'events',
-                'Vision': 'vision',
-                'Gallery': 'gallery', 
-                'Contact us':'contact'};
+const pages = {
+  'Home': '',
+  'Vision': 'vision',
+  'Managers': 'managers',
+  'Calendar': 'events',
+  'Gallery': 'gallery',
+  'Meet Me': 'contact'
+};
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
 export default function Header() {
@@ -33,7 +35,7 @@ export default function Header() {
   const [anchorElUser, setAnchorElUser] = useState(null);
   const navigate = useNavigate();
 
-  const handlePageClickRedirect=(e,page)=>{
+  const handlePageClickRedirect = (e, page) => {
     handleCloseNavMenu(e)
     // const { value, name } = e.target;
     // console.log(value, name)
@@ -107,9 +109,9 @@ export default function Header() {
                 display: { xs: 'block', md: 'none' },
               }}
             >
-              {Object.keys(pages).map((page,idx) => (
+              {Object.keys(pages).map((page, idx) => (
                 <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center" key={page+idx} onClick={(e)=>handlePageClickRedirect(e,pages[page])}>{page}</Typography>
+                  <Typography textAlign="center" key={page + idx} onClick={(e) => handlePageClickRedirect(e, pages[page])}>{page}</Typography>
                 </MenuItem>
               ))}
             </Menu>
@@ -134,11 +136,11 @@ export default function Header() {
             Unique Academy
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-            {Object.keys(pages).map((page,idx) => (
+            {Object.keys(pages).map((page, idx) => (
               <Button
-                key={page+idx}
+                key={page + idx}
                 name={page}
-                onClick={(e)=>handlePageClickRedirect(e,pages[page])}
+                onClick={(e) => handlePageClickRedirect(e, pages[page])}
                 sx={{ my: 2, color: 'white', display: 'block' }}
               >
                 {page}
@@ -146,15 +148,15 @@ export default function Header() {
             ))}
           </Box>
 
-{/* Code for profile icon */}
+          {/* Code for profile icon */}
           {/* <Box sx={{ flexGrow: 0 }}> */}
-            {/* <Paper component="form" sx={{ p: '2px 4px', display: 'flex', alignItems: 'center' }}>
+          {/* <Paper component="form" sx={{ p: '2px 4px', display: 'flex', alignItems: 'center' }}>
               <InputBase sx={{ ml: 1, flex: 1 }} placeholder="Search" inputProps={{ 'aria-label': 'search google maps' }} />
               <IconButton type="button" sx={{ p: '8px' }} aria-label="search">
                 <SearchIcon />
               </IconButton>
             </Paper> */}
-            {/* <Tooltip title="Open settings">
+          {/* <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
                 <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
               </IconButton>

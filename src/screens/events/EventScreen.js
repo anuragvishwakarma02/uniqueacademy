@@ -1,12 +1,14 @@
-import React ,{useState} from 'react'
+import React, { useState, useCallback } from 'react'
 import { Calendar, momentLocalizer } from 'react-big-calendar'
 import moment from 'moment'
 import 'react-big-calendar/lib/css/react-big-calendar.css'
 
+import { Grid, Typography } from '@mui/material'
+
 const localizer = momentLocalizer(moment)
 const now = new Date()
 
-export const events= [
+export const events = [
   /* {
     id: 0,
     title: 'All Day Event very long title',
@@ -19,6 +21,7 @@ export const events= [
     title: 'Long Event',
     start: new Date(2024, 3, 7),
     end: new Date(2024, 3, 10),
+    desc: "Evnet Descrption"
   },
 
   {
@@ -26,6 +29,7 @@ export const events= [
     title: 'DTS STARTS',
     start: new Date(2016, 2, 13, 0, 0, 0),
     end: new Date(2016, 2, 20, 0, 0, 0),
+    desc: "Evnet Descrption"
   },
 
   {
@@ -33,6 +37,7 @@ export const events= [
     title: 'DTS ENDS',
     start: new Date(2016, 10, 6, 0, 0, 0),
     end: new Date(2016, 10, 13, 0, 0, 0),
+    desc: "Evnet Descrption"
   },
 
   {
@@ -41,6 +46,7 @@ export const events= [
     start: new Date(2024, 8, 9, 0, 0, 0),
     end: new Date(2024, 8, 9, 0, 0, 0),
     allDay: true,
+    desc: "Evnet Descrption"
   },
 
   {
@@ -48,6 +54,7 @@ export const events= [
     title: 'Some Other Event',
     start: new Date(2024, 8, 9, 8, 0, 0),
     end: new Date(2024, 8, 10, 11, 30, 0),
+    desc: "Evnet Descrption"
   },
   {
     id: 5,
@@ -55,6 +62,7 @@ export const events= [
     start: new Date(2024, 8, 11),
     end: new Date(2024, 8, 13),
     desc: 'Big conference for important people',
+    desc: "Evnet Descrption"
   },
   {
     id: 6,
@@ -62,6 +70,7 @@ export const events= [
     start: new Date(2024, 8, 12, 10, 30, 0, 0),
     end: new Date(2024, 8, 12, 12, 30, 0, 0),
     desc: 'Pre-meeting meeting, to prepare for the meeting',
+
   },
   {
     id: 7,
@@ -219,13 +228,35 @@ export const events= [
 
 export default function EventScreen() {
   const [eventList, setEventList] = useState(events)
+  const [selectedEvent, setselectedEvent] = useState({})
+  const onSelectEvent = useCallback((calEvent) => {
+  setselectedEvent({ ...selectedEvent, ...calEvent })
+
+  }, [])
   return (
     <div> <Calendar
-    localizer={localizer}
-    events={events}
-    startAccessor="start"
-    endAccessor="end"
-    style={{ height: 500 }}
-  /></div>
+      localizer={localizer}
+      events={events}
+      startAccessor="start"
+      endAccessor="end"
+      style={{ height: 500 }}
+      onSelectEvent={onSelectEvent}
+    />
+      {selectedEvent && (
+        <Grid container spacing={2} sx={{ mt: 1 }}>
+          {/* Address */}
+          <Grid item container xs={12} md={4}>
+            <Grid item xs={12} container direction={'column'} align={'center'} justifyItems={'center'}>
+
+              <Typography variant='body1'>{selectedEvent.title}</Typography>
+              <Typography variant='body1'>{selectedEvent.desc}</Typography>
+              {/* <Typography variant='body1'>{selectedEvent.title}</Typography> */}
+
+            </Grid>
+          </Grid>
+        </Grid>
+
+      )}
+    </div>
   )
 }

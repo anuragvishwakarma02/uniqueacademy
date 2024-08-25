@@ -68,8 +68,9 @@ export default function PeopleCarousels() {
         swipeToSlide={true}
         focusOnSelect={true}
         autoplay={true}
-        autoplaySpeed={2000}
+        autoplaySpeed={5000}
         arrows={false}
+        centerMode={true}
         afterChange={(current, next) => setActiveSlide(current)}
       >
         {imagelist.map((manager, index) => (<div key={index + manager.name} >
@@ -79,11 +80,14 @@ export default function PeopleCarousels() {
             style={
               index == activeSlide ?
                 {
-                  backgroundColor: 'gold', borderTopLeftRadius: '10px', borderTopRightRadius: '10px', border: '5px solid gray', borderBottom: 0
+                  backgroundColor: 'gold', borderTopLeftRadius: '10px', borderTopRightRadius: '10px', border: '5px solid gold', borderBottom: 0
                 } : {}}
           ></Avatar></div>))}
       </Slider >
-      <Slider asNavFor={nav2} ref={slider => (sliderRef1 = slider)} arrows={false}>
+      <Slider asNavFor={nav2} ref={slider => (sliderRef1 = slider)}
+        arrows={false} focusOnSelect={true}
+        pauseOnHover={true}
+      >
         {imagelist.map((manager, index) => (<div key={index + manager.name} >
           <Grid container>
             <Grid item container align={'center'} justifyItems={'center'} spacing={2} sx={{ mt: 4, ml: 2, mr: 2, mb: 2 }}>
@@ -100,6 +104,8 @@ export default function PeopleCarousels() {
           </Grid>
         </div>))}
       </Slider>
+
+
     </div>
   );
 }
