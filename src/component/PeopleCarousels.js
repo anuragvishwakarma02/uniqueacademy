@@ -2,47 +2,50 @@ import React, { useState, useEffect, useRef } from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import Image from '../images/person1.jpg'
-import Image2 from '../images/person2.jpg'
+import Image from '../images/img4.jpeg'
+import Image1 from '../images/img1.jpeg'
+import Image2 from '../images/img2.jpeg'
+import Image3 from '../images/img3.jpeg'
+
 import { styled } from '@mui/material/styles';
 import { Avatar, Typography, Box, Grid, Paper } from '@mui/material'
 
 const imagelist = [
   {
-    name: "Munna Bhaiya",
+    name: "Abdul",
     person_image: Image,
-    desc: "Munna Tripathi is a volatile and power-hungry character, the son of a crime lord. Bablu Pandit, on the other hand, is initially portrayed as a more restrained and educated character, the younger brother of Guddu Pandit. Their relationship takes a twist as they form an alliance amidst the crime-ridden backdrop of Mirzapur, leading to darkly humorous situations as they navigate the complexities of the criminal world."
+    desc: "Descripition"
   },
   {
-    name: "Bablu",
-    person_image: Image2,
-    desc: " Bablu Pandit is initially portrayed as a more restrained and educated character, the younger brother of Guddu Pandit. Their relationship takes a twist as they form an alliance amidst the crime-ridden backdrop of Mirzapur, leading to darkly humorous situations as they navigate the complexities of the criminal world."
+    name: "Ravi",
+    person_image: Image3,
+    desc: "Descripition"
   },
   {
-    name: "Guddu",
-    person_image: Image,
-    desc: "THis is a brilliant person"
-  },
-  {
-    name: "Pysco",
+    name: "Mukesh",
     person_image: Image2,
     desc: "THis is a brilliant person"
   },
   {
-    name: "Chucha",
-    person_image: Image,
+    name: "Mohit",
+    person_image: Image1,
     desc: "THis is a brilliant person"
   },
-  {
-    name: "Pysco",
-    person_image: Image2,
-    desc: "THis is a brilliant person"
-  },
-  {
-    name: "Pysco",
-    person_image: Image,
-    desc: "THis is a brilliant person"
-  }
+  // {
+  //   name: "Chucha",
+  //   person_image: Image,
+  //   desc: "THis is a brilliant person"
+  // },
+  // {
+  //   name: "Pysco",
+  //   person_image: Image2,
+  //   desc: "THis is a brilliant person"
+  // },
+  // {
+  //   name: "Pysco",
+  //   person_image: Image,
+  //   desc: "THis is a brilliant person"
+  // }
 
 ]
 export default function PeopleCarousels() {
@@ -68,7 +71,7 @@ export default function PeopleCarousels() {
         swipeToSlide={true}
         focusOnSelect={true}
         autoplay={true}
-        autoplaySpeed={5000}
+        autoplaySpeed={3000}
         arrows={false}
         centerMode={true}
         afterChange={(current, next) => setActiveSlide(current)}
