@@ -4,6 +4,6 @@ import PeopleCarousel from '../../component/PeopleCarousels'
 
 export default function ManagerScreen() {
   return (<>
-  <PeopleCarousel></PeopleCarousel></>
+  <PeopleCarousel showDetails={true}></PeopleCarousel></>
    )
 }
