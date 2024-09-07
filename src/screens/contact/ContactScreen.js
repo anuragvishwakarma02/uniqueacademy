@@ -16,8 +16,13 @@ const Item = styled(Paper)(({ theme }) => ({
 
 export default function ContactScreen() {
     return (<>
+    <Grid container direction={'column'} align={'center'} justifyItems={'center'} sx={{mt:1,mb:2}}>
+            <Typography variant='h2'>
+               Connect with us
+            </Typography>
+        </Grid>
         {/* <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}> */}
-        <Grid container spacing={2} sx={{mt:1}}>
+        <Grid container spacing={2} sx={{mt:1,mb:3}}>
             {/* Address */}
             <Grid item container xs={12} md={4}>
                 <Grid item xs={12} container direction={'column'} align={'center'} justifyItems={'center'}>
