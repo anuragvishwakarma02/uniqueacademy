@@ -24,21 +24,21 @@ export default function ContactScreen() {
         {/* <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}> */}
         <Grid container spacing={2} sx={{mt:1,mb:3}}>
             {/* Address */}
-            <Grid item container xs={12} md={4}>
+            <Grid item container xs={12} md={6}>
                 <Grid item xs={12} container direction={'column'} align={'center'} justifyItems={'center'}>
                     <Item>
-                        <Typography variant='body1'>Address : Nehru Nagar</Typography>
+                        <Typography variant='h6'>Address : Nehru Nagar</Typography>
                         {/* <Typography variant='body2'>Nehru Nagar</Typography> */}
-                        <Typography variant='body2'>Bhilai</Typography>
+                        <Typography variant='h6'>Bhilai</Typography>
                     </Item>
                 </Grid>
             </Grid>
             {/* Phone & Email */}
-            <Grid item xs={12} md={4}>
+            <Grid item xs={12} md={6}>
                 <Grid item xs={12} container direction={'column'} align={'center'} justifyItems={'center'}>
                     <Item>
-                        <Typography variant='body2'>Email :<span>shami.abdul.uniquety@gmail.com</span></Typography>
-                        <Typography variant='body2'>Phone :<span>91-8103999904</span></Typography>
+                        <Typography variant='h6'>Email :<span>shami.abdul.uniquety@gmail.com</span></Typography>
+                        <Typography variant='h6'>Phone :<span>91-8103999904</span></Typography>
                     </Item>
                 </Grid>
             </Grid>
