@@ -19,7 +19,7 @@ import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
 import { useNavigate } from "react-router-dom";
-
+import Logo2 from "../images/logo.png"
 const pages = {
   'Home': '',
   'Vision': 'vision',
@@ -61,7 +61,9 @@ export default function Header() {
     <AppBar position='sticky' >
       <Container maxWidth="xl">
         <Toolbar disableGutters>
-          <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
+          {/* <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} /> */}
+          <Avatar alt="Remy Sharp" variant="rounded" src={Logo2} sx={{ display: { xs: 'none', md: 'flex' }, mr: 1,
+            width: 56, height: 56 }} />
           <Typography
             variant="h6"
             noWrap
@@ -116,7 +118,11 @@ export default function Header() {
               ))}
             </Menu>
           </Box>
-          <AdbIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
+          {/* <AdbIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} /> */}
+          <Avatar alt="Remy Sharp" variant="rounded" src={Logo2} sx={{
+            display: { xs: 'flex', md: 'none' }, mr: 1,
+            width: 42, height: 42
+          }} />
           <Typography
             variant="h5"
             noWrap
