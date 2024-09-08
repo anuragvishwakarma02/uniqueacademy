@@ -6,8 +6,8 @@ export default function OurTeamScreen() {
     const navigate = useNavigate();
     const handlePageClickRedirect = (e) => {
         navigate(`/managers`)
-    
-      }
+
+    }
     return (<>
         <Grid container direction={'column'} align={'center'} justifyItems={'center'} sx={{ mt: 1, mb: 2 }}>
             <Typography variant='h2'>
@@ -17,10 +17,11 @@ export default function OurTeamScreen() {
         <PeopleCarousels></PeopleCarousels>
 
         <Grid container direction={'column'} align={'center'} justifyItems={'center'} sx={{ mt: 1, mb: 2 }}>
-
-            <Button onClick={handlePageClickRedirect}>
-                Know More
-            </Button>
+            <Grid item>
+                <Button variant="contained" sx={{ width: "25vw" }} onClick={handlePageClickRedirect}>
+                    Know More
+                </Button>
+            </Grid>
         </Grid>
     </>
 

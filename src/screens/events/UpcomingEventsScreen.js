@@ -17,7 +17,9 @@ export default function UpcomingEventsScreen() {
             <Typography variant='h7'>
                 Coming Soon...
             </Typography>
-            <Button onClick={handlePageClickRedirect}>All Events</Button>
+            <Grid item>
+                <Button onClick={handlePageClickRedirect} variant="contained" sx={{ width: "25vw" }}>All Events</Button>
+            </Grid>
         </Grid>
     )
 }
